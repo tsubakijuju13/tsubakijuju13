@@ -1,4 +1,4 @@
-name: create-snake-image
+name: create-snake
 on:
   workflow_dispatch:
   schedule:
