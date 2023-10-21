@@ -32,4 +32,4 @@ jobs:
           build_dir: dist
           keep_history: true
         env:
-          GITHUB_TOKEN: ${{ secrets.SATORU }}
+          GITHUB_TOKEN: ${{ secrets.SATORU_KEY }}
