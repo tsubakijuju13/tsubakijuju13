@@ -12,16 +12,16 @@ permissions:
   contents: write
 
 jobs:
-  update-repository:
-    name: Actualiza README
+  generate:
+    permissions: 
+      contents: write
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Generador Snake SVG
-        uses: Platane/snk@v3
-        id: snake-svg
+      - name: genera el svg
+        uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
