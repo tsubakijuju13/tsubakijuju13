@@ -1,0 +1,27 @@
+name: create-snake-image
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 15 * * *"
+
+jobs:
+  update-repository:
+    name: Actualiza README
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Generador Snake SVG
+        uses: Platane/snk@v3
+        id: snake-svg
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            ./img/snake_satoru.svg
+            ./img/snake_dark_satoru.svg?palette=github-dark
+      - name: Push to GitHub
+        uses: EndBug/add-and-commit@v9.1.3
+        with:
+          author_name: 'GitHub Actions'
+          author_email: 'action@github.com'
+          message: ':rocket: Update snake'
