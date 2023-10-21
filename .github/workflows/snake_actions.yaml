@@ -2,7 +2,7 @@ name: create-snake
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 15 * * *"
+    - cron: "0 */24 * * *"
 
   push:
     branches:
@@ -30,5 +30,6 @@ jobs:
         with:
           target_branch: output
           build_dir: dist
+          keep_history: true
         env:
           GITHUB_TOKEN: ${{ secrets.SATORU }}
